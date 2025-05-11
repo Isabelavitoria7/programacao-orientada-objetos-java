@@ -20,13 +20,14 @@ public class App {
                     String nome = JOptionPane.showInputDialog("Digite o nome do funcionário:");
                     String cpf = JOptionPane.showInputDialog("Digite o CPF do funcionário:");
                     String titulo = JOptionPane.showInputDialog("Digite o título do cargo:");
+                    String endereco = JOptionPane.showInputDialog("Digite o endereço do funcionário:");
                     double salario = Double.parseDouble(JOptionPane.showInputDialog("Digite o salário do funcionário:"));
 
                     // Criando o cargo
                     Cargo funcao = new Cargo(titulo, salario);
 
                     // Criando o funcionário e adicionando à lista
-                    Funcionario funcionario = new Funcionario(nome, cpf, funcao);
+                    Funcionario funcionario = new Funcionario(nome, cpf, funcao, endereco);
                     funcionarios.add(funcionario);
 
                     JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso!");
@@ -41,6 +42,7 @@ public class App {
                         for (Funcionario f : funcionarios) {
                             lista.append("Nome: ").append(f.nome)
                                  .append(", CPF: ").append(f.cpf)
+                                 .append(", Endereço: ").append(f.endereco)
                                  .append(", Cargo: ").append(f.funcao.titulo)
                                  .append(", Salário: ").append(f.funcao.salario)
                                  .append("\n");
@@ -56,7 +58,7 @@ public class App {
                     for (Funcionario f : funcionarios) {
                         if (f.nome.equalsIgnoreCase(nomeBusca)) {
                             JOptionPane.showMessageDialog(null, 
-                                "Nome: " + f.nome + "\nCPF: " + f.cpf + "\nCargo: " + f.funcao.titulo + "\nSalário: " + f.funcao.salario);
+                                "Nome: " + f.nome + "\nCPF: " + f.cpf +"\nEndereço: " + f.endereco + "\nCargo: " + f.funcao.titulo + "\nSalário: " + f.funcao.salario);
                             encontrado = true;
                             break;
                         }
